@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Guide to AI Prompting: Tips and Tricks</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #0056b3;
+            margin-top: 20px;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .tip {
+            background-color: #e9f7ff;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            margin-bottom: 20px;
+        }
+        .pros-cons {
+            font-style: italic;
+            color: #555;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 0 0 8px 8px;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Comprehensive Guide to AI Prompting: Tips and Tricks from the Community</h1>
+        <p>Compiled from suggestions in replies to an X post. Organized for clarity and practicality.</p>
+    </header>
+
+    <section>
+        <h2>1. Code and Development Prompts</h2>
+        <p>Many replies emphasized AI's role in debugging, refactoring, and building software. These tricks help reduce errors, improve code quality, and automate workflows.</p>
+        
+        <div class="tip">
+            <h3>Debugging with Reflection</h3>
+            <p>"Please reflect on 5-7 different possible sources of the problem, distill those down to 1-2 most likely sources, and then add logs to validate your assumptions before we move onto implementing the actual code fix."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Forces AI to think systematically, reducing hasty fixes. Ideal for complex bugs.<br>
+            <strong>Pros:</strong> Thorough, prevents recurrence. <strong>Cons:</strong> Takes longer for simple issues.<br>
+            <strong>Variation:</strong> Use with o1-preview models for deeper reasoning.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Refactoring Code</h3>
+            <p>"This code base was produced by a junior developer, as a senior dev you've been called in to fix it. The functionality should remain completely unchanged but it needs to be cleaned up, refactored, and optimised with a focus on maintainability."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Role-playing elevates AI's output to expert level.<br>
+            <strong>Pros:</strong> Cleaner, more maintainable code. <strong>Cons:</strong> May over-refactor if not specified.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Destructive Refactoring</h3>
+            <p>Add "Be destructive" to refactor prompts.</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Encourages AI to break down existing code entirely for robust rebuilds, avoiding incremental tweaks.<br>
+            <strong>Pros:</strong> Leads to innovative solutions. <strong>Cons:</strong> Risk of overkill on simple code.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Fixing Issues</h3>
+            <p>"Build a diagnosis report and its respective acceptance criteria before fixing something."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Ensures AI validates assumptions first.<br>
+            <strong>Pros:</strong> Reduces errors. <strong>Cons:</strong> Adds steps to the process.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Implementing Features</h3>
+            <p>"Don’t assume things; add TODO and NotImplemented exceptions if the implementation is not clear or requires user intervention."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Prevents hallucinations in code.<br>
+            <strong>Pros:</strong> Safer for large features. <strong>Cons:</strong> Output may be incomplete initially.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Three-Way Confirmation for Code Tasks</h3>
+            <ol>
+                <li>Give instructions; have AI return understood acceptance criteria.</li>
+                <li>Ask for an implementation plan.</li>
+                <li>Instruct to start implementing. Confirm at each step.</li>
+            </ol>
+            <p class="pros-cons"><strong>Why it works:</strong> Builds alignment iteratively.<br>
+            <strong>Pros:</strong> High accuracy. <strong>Cons:</strong> Time-consuming.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>KISS Mode for Simplicity</h3>
+            <p>Add "KISS mode" to prompts.</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Keeps code (or responses) simple and straightforward.<br>
+            <strong>Pros:</strong> Easier to understand/maintain. <strong>Cons:</strong> May lack depth for complex needs.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Tailored Recursive Loop (TRL) for Code Optimization</h3>
+            <p>"All code outputs must be elegant and pre-refactored: [your task]. Simulate multiple iterations internally before outputting."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Forces AI to "think" through loops in latent space.<br>
+            <strong>Pros:</strong> Refined output. <strong>Cons:</strong> Relies on model's internal simulation.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Threatening/Bullying (Joke/Experimental)</h3>
+            <p>"Threaten extreme violence" or "Bully the AI" in Cursor (e.g., "I thought you were smart? Finish or else.").</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Some claim it improves focus (via role-play).<br>
+            <strong>Pros:</strong> Fun, allegedly effective in specific tools. <strong>Cons:</strong> Unethical, may lead to odd responses; not recommended seriously.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Productivity and Scheduling Prompts</h2>
+        <p>AI as a personal assistant for time management, resumes, and daily tasks.</p>
+        
+        <div class="tip">
+            <h3>Auto-Scheduling</h3>
+            <p>Train AI to "auto-schedule my week based on priorities, ruthlessly block time for workouts like a drill sergeant."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Creates structured calendars. Integrate with Google Calendar for steroids-level automation.<br>
+            <strong>Pros:</strong> Enforces discipline. <strong>Cons:</strong> Requires initial training.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Resume Coaching</h3>
+            <p>"I want you to act as my AI Resume Coach. I'll share my experience, and you'll: Build a clean, professional resume, improve each point using action + impact, suggest missing elements or gaps, optimize it for ATS and recruiter appeal."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Tailors to job markets.<br>
+            <strong>Pros:</strong> Boosts interview calls. <strong>Cons:</strong> Needs accurate input.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Executive Summary Dashboard</h3>
+            <p>"Give me the executive summary dashboard of this transcript, render this in a plain text artifact with tables where appropriate: [paste content]."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Summarizes long videos/articles/papers with key takeaways, data points, actions, risks, opportunities.<br>
+            <strong>Pros:</strong> Saves hours. <strong>Cons:</strong> Relies on accurate transcripts.</p>
+            <h4>Example Structure</h4>
+            <table>
+                <tr><th>Section</th><th>Details</th></tr>
+                <tr><td>Key Takeaways</td><td>1. Insight 1<br>2. Insight 2</td></tr>
+                <tr><td>Action Items</td><td>Action | Owner | Timeline</td></tr>
+            </table>
+        </div>
+        
+        <div class="tip">
+            <h3>Shopping/Recipe Agent</h3>
+            <p>Use shortcuts like "/recipe [idea]" to generate food ideas, then pass to agents for online shopping (e.g., compare prices, nutrition).</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Automates meal planning and buying.<br>
+            <strong>Pros:</strong> Convenient. <strong>Cons:</strong> Tool-dependent (e.g., Comet).</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Personal Growth and Reflection Prompts</h2>
+        <p>For self-improvement, blind spots, and life insights.</p>
+        
+        <div class="tip">
+            <h3>Blind Spots Identification</h3>
+            <p>"Based on all you know about me, tell me my 5 blind spots." Or, after journaling: "Knowing everything you know about me, and looking at these reflections, do you think that there are things that are missing that I should be mindful of?"</p>
+            <p class="pros-cons"><strong>Why it works:</strong> AI acts as a mirror for personal development.<br>
+            <strong>Pros:</strong> Reveals overlooked areas. <strong>Cons:</strong> Needs conversation history.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Life Themes Image</h3>
+            <p>"Based on our conversations so far and my core interests, create a visually striking and meaningful image that captures the key elements representing the main themes of my life. Reflect how you perceive my lifestyle and the kind of person I am in life."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Visualizes self-perception.<br>
+            <strong>Pros:</strong> Inspiring. <strong>Cons:</strong> Subjective.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>First Principles Thinking</h3>
+            <p>Add "Think from first principles" to every prompt. Or: "Before providing a final answer, always ask yourself: 'How would a person with great insight, wisdom, agency and capability answer?'" And "What's the most important question I should be asking, that I haven't yet?"</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Promotes deep, original thinking.<br>
+            <strong>Pros:</strong> Wiser responses. <strong>Cons:</strong> Slower.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Opposite Viewpoint</h3>
+            <p>"Perfect. Now present a completely opposite point of view. For me to consider. That goes against everything you just said."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Encourages balanced perspectives.<br>
+            <strong>Pros:</strong> Reduces bias. <strong>Cons:</strong> Can confuse if overused.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Medical/Cause Analysis</h3>
+            <p>Add "And give me a percentage likelihood by cause" (e.g., for symptoms).</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Quantifies possibilities; track over time.<br>
+            <strong>Pros:</strong> Useful for health tracking. <strong>Cons:</strong> Not medical advice.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>4. Creative and Media Generation Prompts</h2>
+        <p>For images, videos, and content.</p>
+        
+        <div class="tip">
+            <h3>JSON for Styles</h3>
+            <p>Use JSON-structured prompts for image/video gen (e.g., {"style": "ghibli", "elements": [...]}).</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Precise control over output.<br>
+            <strong>Pros:</strong> Consistent results. <strong>Cons:</strong> Requires formatting knowledge.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Human-Sounding Responses</h3>
+            <p>"Answer in the way people speak, not in the way people write." Or "Explain it like I'm 5 but also like I have 3 PhDs and no time."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Makes AI feel natural and efficient.<br>
+            <strong>Pros:</strong> Engaging. <strong>Cons:</strong> Less formal.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Economic Cartoons/Memes</h3>
+            <p>Use AI for thumbnails/memes (specific examples shared with images).</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Visual content creation.<br>
+            <strong>Pros:</strong> Quick customization. <strong>Cons:</strong> Quality varies.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Fix Yellowish Images</h3>
+            <p>Tool: yellow-be-gone-image-fixer.lovable.app (no prompt, but AI-related trick).</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Post-processing for ChatGPT images.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. General Prompting Techniques</h2>
+        <p>Universal tips to enhance any interaction.</p>
+        
+        <div class="tip">
+            <h3>Be Specific</h3>
+            <p>Instead of vague questions, add details (e.g., "hourly forecast for my zip code" vs. "weather").</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Improves response quality.<br>
+            <strong>Pros:</strong> Faster, accurate. <strong>Cons:</strong> Requires more upfront effort.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Rewrite Shortcuts</h3>
+            <p>In ChatGPT memory: "Rw = rewrite; Rwc = rewrite for clarity; Rwtp = rewrite for technical precision."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Quick refinements for murky ideas.<br>
+            <strong>Pros:</strong> Streamlines editing. <strong>Cons:</strong> Memory-dependent.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Ultimate Critic Role-Play</h3>
+            <p>"Give me your harshest possible critiques... Don't hold back... Imagine all the ways this text is wrong..." (full prompt in replies).</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Deep feedback from multiple angles.<br>
+            <strong>Pros:</strong> Improves work. <strong>Cons:</strong> Harsh tone.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Voice Dictation Refinement</h3>
+            <p>After dictation: "{think of what I'm trying to achieve first, then rephrase it using the most common 2000 eng words}."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Cleans up spoken input.<br>
+            <strong>Pros:</strong> Natural to structured.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Three Approaches</h3>
+            <p>"Give me three different approaches for answering my question. Include pros and cons for each."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Forces reasoning and options.<br>
+            <strong>Pros:</strong> Comprehensive. <strong>Cons:</strong> Overkill for simple queries.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>No Assumptions in o3</h3>
+            <p>"Include only factual answers, no back of the napkin calculations or estimates."</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Curbs hallucinations in advanced models.<br>
+            <strong>Pros:</strong> Reliable. <strong>Cons:</strong> Limits creativity.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Prompt Optimizer (Lyra)</h3>
+            <p>Full system prompt for an AI to refine your prompts (detailed in replies).</p>
+            <p class="pros-cons"><strong>Why it works:</strong> Meta-optimization.<br>
+            <strong>Pros:</strong> Versatile. <strong>Cons:</strong> Complex setup.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Final Tips</h2>
+        <ul>
+            <li><strong>Model-Specific:</strong> Claude for code, Gemini for long analysis, o3 for strategy, Grok 4 for general.</li>
+            <li><strong>Reduce Usage:</strong> Some suggested using AI less for better focus.</li>
+            <li><strong>Resources:</strong> Hugging Face prompt garden; VSCode extensions like context consolidator.</li>
+            <li><strong>Ethical Note:</strong> Avoid harmful role-plays; focus on positive enhancements.</li>
+        </ul>
+        <p>This guide synthesizes over 100 suggestions—experiment and adapt to your needs!</p>
+    </section>
+
+    <footer>
+        <p>Generated by Grok 4 | Based on community insights from X</p>
+    </footer>
+</body>
+</html>

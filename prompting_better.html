@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Guide to AI Prompting Tricks</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        main {
+            background-color: white;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+            }
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+            }
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: bold;
+            }
+            td:nth-of-type(1):before { content: "Trick"; }
+            td:nth-of-type(2):before { content: "Description"; }
+            td:nth-of-type(3):before { content: "Example Prompt"; }
+            td:nth-of-type(4):before { content: "Why It's Useful"; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Collection of Best AI Prompting Tricks</h1>
+        <p>Prompt engineering is the art of crafting inputs to AI models to elicit more accurate, creative, and useful responses. Based on recent insights from 2025 sources, these techniques can improve output quality by up to 90% in some cases, especially for complex tasks. Below, we've curated a collection of the top 15 most effective and useful prompting tricks, drawn from expert guides, academic analyses, and practical examples. They're organized into categories for clarity, with descriptions, benefits, and sample prompts. Prioritize timeless, versatile methods that work across models like Grok, GPT, Claude, or Gemini.</p>
+    </header>
+    <main>
+        <section id="foundational">
+            <h2>Foundational Techniques</h2>
+            <p>These build the core structure of a good prompt.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trick</th>
+                        <th>Description</th>
+                        <th>Example Prompt</th>
+                        <th>Why It's Useful</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Role Prompting</td>
+                        <td>Assign the AI a specific persona or expert role to guide its tone, knowledge, and approach. This activates relevant knowledge pathways.</td>
+                        <td>"You are a senior beauty editor at Vogue. Write a product description for a luxury skincare brand targeting women over 35, focused on hydration and clean ingredients."</td>
+                        <td>Aligns responses with expertise; reduces generic outputs. Great for creative or specialized tasks.</td>
+                    </tr>
+                    <tr>
+                        <td>Context Provision</td>
+                        <td>Provide detailed background information upfront to set the stage, including goals, audience, or constraints.</td>
+                        <td>"I'm building a landing page for a no-code app that helps freelancers manage clients. Goal: convert free users. Here's what I've done so far... Write 3 subject lines."</td>
+                        <td>Prevents misunderstandings; improves relevance and depth, especially for ambiguous queries.</td>
+                    </tr>
+                    <tr>
+                        <td>Structured Prompts</td>
+                        <td>Use formats like JSON, XML, or bullet points to organize the prompt, making it easier for the AI to follow.</td>
+                        <td>"Output in JSON: {'hook': 'Attention-grabber', 'insight': 'Key point', 'cta': 'Call to action'} for a marketing email."</td>
+                        <td>Ensures consistent, parsable outputs; ideal for automation or data extraction.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="example-based">
+            <h2>Example-Based Techniques</h2>
+            <p>Leverage demonstrations to teach the AI what you want.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trick</th>
+                        <th>Description</th>
+                        <th>Example Prompt</th>
+                        <th>Why It's Useful</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Few-Shot Prompting</td>
+                        <td>Include 2-5 examples of the desired input-output pairs to "teach" the AI the pattern without full training.</td>
+                        <td>"Ticket: 'I can’t reset my password.' Category: Account Access --- Ticket: 'The app crashes when I upload a file.' Category: Bug Report --- Ticket: 'I want to upgrade to the Pro plan.' Category:"</td>
+                        <td>Boosts accuracy from 0% to 90% for classification or generation tasks; no need for zero examples.</td>
+                    </tr>
+                    <tr>
+                        <td>Zero-Shot Prompting</td>
+                        <td>Directly describe the task without examples, relying on the model's pre-trained knowledge.</td>
+                        <td>"Summarize this article in 3 bullet points."</td>
+                        <td>Quick for simple, well-known tasks; saves time when examples aren't available.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="reasoning">
+            <h2>Reasoning and Refinement Techniques</h2>
+            <p>Encourage logical thinking and iteration.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trick</th>
+                        <th>Description</th>
+                        <th>Example Prompt</th>
+                        <th>Why It's Useful</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chain-of-Thought (CoT)</td>
+                        <td>Instruct the AI to reason step-by-step, breaking down complex problems.</td>
+                        <td>"Let’s think step by step: Should I open a coffee shop in Goa? Consider footfall, rent, seasonality, and competition."</td>
+                        <td>Enhances problem-solving accuracy by 30-50%; vital for math, logic, or strategy.</td>
+                    </tr>
+                    <tr>
+                        <td>Self-Criticism</td>
+                        <td>Ask the AI to review and critique its own response for improvements.</td>
+                        <td>"Here’s my answer. Now, offer yourself some criticism and revise it."</td>
+                        <td>Increases reliability; catches errors in high-stakes or logic-heavy outputs.</td>
+                    </tr>
+                    <tr>
+                        <td>Decomposition</td>
+                        <td>Break a big task into sub-tasks or sub-problems for sequential solving.</td>
+                        <td>"What are the sub-problems in planning a marketing campaign? Solve each one step-by-step."</td>
+                        <td>Handles complexity; reduces overwhelm for multi-step queries.</td>
+                    </tr>
+                    <tr>
+                        <td>Maieutic Prompting</td>
+                        <td>Probe the AI's beliefs by questioning assumptions, like a Socratic dialogue, to refine answers.</td>
+                        <td>"Explain why X is true. Now, assume it's false and explain why. Synthesize the best view."</td>
+                        <td>Uncovers nuances and reduces biases; great for controversial or uncertain topics.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="advanced">
+            <h2>Advanced Optimization Techniques</h2>
+            <p>For scaling, creativity, or edge cases.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trick</th>
+                        <th>Description</th>
+                        <th>Example Prompt</th>
+                        <th>Why It's Useful</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ensemble Prompting</td>
+                        <td>Generate multiple responses (3-5) and vote/select/refine the best one.</td>
+                        <td>"Generate 3 variations of this summary. Rank them by clarity and pick the best."</td>
+                        <td>Counters inconsistency; yields higher-quality final outputs through comparison.</td>
+                    </tr>
+                    <tr>
+                        <td>Constraints and Responsibilities</td>
+                        <td>Specify limits like length, tone, or rules to avoid unwanted outputs.</td>
+                        <td>"Keep responses under 100 words. Always be empathetic and factual. No made-up data."</td>
+                        <td>Controls output style; prevents rambling or hallucinations.</td>
+                    </tr>
+                    <tr>
+                        <td>Meta-Prompting</td>
+                        <td>Prompt the AI to improve or generate better prompts first.</td>
+                        <td>"Rewrite this vague prompt to be detailed and effective: 'Write a blog post.'"</td>
+                        <td>Automates prompt optimization; useful for beginners or iterative workflows.</td>
+                    </tr>
+                    <tr>
+                        <td>Panel of Experts</td>
+                        <td>Simulate multiple perspectives (e.g., disciplines or personas) and synthesize.</td>
+                        <td>"Answer from a historian, economist, and scientist's view. Then synthesize."</td>
+                        <td>Broadens insights; ideal for multifaceted questions like policy or innovation.</td>
+                    </tr>
+                    <tr>
+                        <td>Iterative Follow-Ups</td>
+                        <td>Treat prompting as a conversation: refine based on initial outputs.</td>
+                        <td>"Make this more Gen Z. Add urgency. Format as a tweet thread."</td>
+                        <td>Builds on responses; turns mediocre outputs into elite ones dynamically.</td>
+                    </tr>
+                    <tr>
+                        <td>Best of N</td>
+                        <td>Run the same prompt multiple times and select/average the top results.</td>
+                        <td>"Run this query 5 times. Score each on accuracy and pick the highest."</td>
+                        <td>Mitigates variability; ensures robust results for critical tasks.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="conclusion">
+            <h2>Final Tips</h2>
+            <p>These tricks are adaptable—combine them (e.g., Role + CoT + Few-Shot) for even better results. Start with simple ones like Role Prompting, then experiment. For more depth, check resources like Anthropic's guides or OpenAI's playground.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 AI Prompting Guide. All rights reserved. Created with insights from leading AI experts.</p>
+    </footer>
+</body>
+</html>
